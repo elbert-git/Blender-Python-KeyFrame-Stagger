@@ -1,18 +1,5 @@
 import bpy
 
-#convert to mesh
-def ConverToMesh():
-    bpy.ops.object.convert(target='MESH')
-
-
-#separate by loose objects
-def SeperateByLooseObjects():
-    bpy.ops.mesh.separate(type='LOOSE')
-
-#set origin to geometry
-def SetOriginToGeometry():
-    bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
-
 #stagger keyframes
 def StaggerKeyframes():
     
