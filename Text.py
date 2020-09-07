@@ -1,5 +1,30 @@
 import bpy
 
+
+#-----------Main functions--------------
+def main():
+    #PrepareText()
+    StaggerKeyframes()
+#---------------------------------------
+
+
+
+
+
+
+
+#convert to mesh
+def ConvertToMesh():
+    bpy.ops.object.convert(target='MESH')
+
+#separate by loose objects
+def SeparateByLooseObjects():
+    bpy.ops.mesh.separate(type='LOOSE')
+
+#set origin to geometry
+def SetOriginToGeometry():
+    bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY', center='MEDIAN')
+
 #stagger keyframes
 def StaggerKeyframes():
     
@@ -22,7 +47,6 @@ def StaggerKeyframes():
             print(object)
             
             #move keyframes by offset
-#            for fcurve in bpy.data.actions[object.name+'Action'].fcurves:
             for fcurve in object.animation_data.action.fcurves:
                 for point in fcurve.keyframe_points:
                      point.co.x += offset_frames 
@@ -31,9 +55,10 @@ def StaggerKeyframes():
             offset_frames += step #iterate offset frames
         
         index+=step #iterate index
-
-def main():
-    print('-----')
-    StaggerKeyframes()
+        
+def PrepareText():
+    ConvertToMesh()
+    SeparateByLooseObjects()
+    SetOriginToGeometry()
 
 main()
