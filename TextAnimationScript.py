@@ -3,12 +3,13 @@ import bpy
 
 #-----------Main functions--------------
 def main():
-    #PrepareText()
-    StaggerKeyframes()
+    PrepareText()
+    try:
+        StaggerKeyframes()
+    except:
+        pass
+
 #---------------------------------------
-
-
-
 
 
 
